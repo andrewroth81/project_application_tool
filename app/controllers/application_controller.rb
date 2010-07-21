@@ -6,6 +6,8 @@ require_dependency 'custom_elements'
 class ApplicationController < ActionController::Base
   include ExceptionNotifiable
 
+  before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => :login
+
   if RAILS_ENV == 'production'
     $server_url = "https://pat.powertochange.org"
   else
