@@ -86,5 +86,7 @@ unless ENV['target'] == 'demo'
     run "rm -Rf #{release_path}/tmp/cache/*"
     run "mkdir -p #{release_path}/tmp/cache/views/pat.powertochange.org"
     run "ln -s #{release_path}/tmp/cache/views/pat.powertochange.org #{release_path}/tmp/cache/views/pat2.powertochange.org"
+    run "cd #{release_path} && git submodule init"
+    run "cd #{release_path} && git submodule update"
   end
 end
